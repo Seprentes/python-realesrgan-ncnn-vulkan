@@ -1,0 +1,3 @@
+*/__pycache__
+_skbuild/
+*.egg-info
