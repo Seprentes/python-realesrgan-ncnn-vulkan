@@ -1,0 +1,16 @@
+include .github/workflows/python-publish.yml
+include .gitignore
+include CMakeLists.txt
+include LICENSE.txt
+include README.md
+include cpp/CMakeLists.txt
+include cpp/Real-ESRGAN-ncnn-vulkan
+include cpp/RealESRGANWrapper.cpp
+include cpp/RealESRGANWrapper.hpp
+include realesrgan_ncnn_vulkan/CMakeLists.txt
+include realesrgan_ncnn_vulkan/__init__.py
+include realesrgan_ncnn_vulkan/includes/realesrgan.pxi
+include realesrgan_ncnn_vulkan/realesrgan.pyx
+include requirements.txt
+include setup.py
+exclude MANIFEST.in

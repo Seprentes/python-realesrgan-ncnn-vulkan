@@ -1,6 +1,10 @@
 from libcpp cimport bool as bool_t
-from libcpp.string cimport string
 from libcpp.vector cimport vector
+
+IF UNAME_SYSNAME == "Windows":
+    from wstring cimport wstring as string
+ELSE:
+    from libcpp.string cimport string
 
 cdef extern from "RealESRGANWrapper.hpp":
     cdef cppclass RealESRGANWrapper:

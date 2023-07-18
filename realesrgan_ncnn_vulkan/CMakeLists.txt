@@ -6,7 +6,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/../cpp/Real-ESRGAN-ncnn-vulkan/s
 add_cython_target(realesrgan PY3 CXX)
 
 add_library(realesrgan MODULE ${realesrgan})
-target_link_libraries(realesrgan realesrgan-wrapper)
+target_link_libraries(realesrgan realesrgan-wrapper -static-libstdc++)
 
 python_extension_module(realesrgan)
 
