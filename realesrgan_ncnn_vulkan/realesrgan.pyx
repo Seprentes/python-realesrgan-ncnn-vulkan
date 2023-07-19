@@ -7,7 +7,7 @@ include "includes/realesrgan.pxi"
 
 IF UNAME_SYSNAME == "Windows":
     from libc.stddef cimport wchar_t
-    from wstring cimport wstring
+    from .includes.wstring cimport wstring
 
     cdef extern from "Python.h":
         wchar_t* PyUnicode_AsWideCharString(object, Py_ssize_t *)
@@ -29,6 +29,7 @@ cdef class RealESRGAN:
             raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), parampath)
         elif not os.path.isfile(modelpath):
             raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), modelpath)
+
         IF UNAME_SYSNAME == "Windows":
             cdef Py_ssize_t length_parampath
             cdef Py_ssize_t length_modelpath
@@ -36,7 +37,7 @@ cdef class RealESRGAN:
             cdef wchar_t *wparampath = PyUnicode_AsWideCharString(parampath, &length_parampath)
             cdef wchar_t *wmodelpath = PyUnicode_AsWideCharString(modelpath, &length_modelpath)
 
-            self.c_realesrgan.load(wstring(wparampath), wstring(wmodelpath))
+            self.c_realesrgan.load(<const wstring>wstring(wparampath), <const wstring>wstring(wmodelpath))
         ELSE:
             self.c_realesrgan.load(parampath.encode(), modelpath.encode())
 

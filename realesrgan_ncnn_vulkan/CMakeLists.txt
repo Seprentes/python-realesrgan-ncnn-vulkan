@@ -2,6 +2,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../cpp)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../cpp/Real-ESRGAN-ncnn-vulkan/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../cpp/Real-ESRGAN-ncnn-vulkan/src/ncnn/src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../cpp/Real-ESRGAN-ncnn-vulkan/src/ncnn/src)
+include_directories(${Vulkan_INCLUDE_DIRS})
 
 add_cython_target(realesrgan PY3 CXX)
 
